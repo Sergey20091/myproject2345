@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>СОНЕЧКА!!!!!!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      background: linear-gradient(-45deg, #1f1c2c, #928DAB, #0f2027, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .shake {
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0px, 0px); }
+      20% { transform: translate(-10px, 0px); }
+      40% { transform: translate(10px, 0px); }
+      60% { transform: translate(-10px, 0px); }
+      80% { transform: translate(10px, 0px); }
+      100% { transform: translate(0px, 0px); }
+    }
+
+    .title {
+      font-size: 3.5em;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 10px #ff00ff;
+      margin-bottom: 20px;
+      animation: titleFade 2s ease-out;
+    }
+
+    @keyframes titleFade {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      color: white;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    .caption {
+      font-style: italic;
+      color: #dddddd;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #ff6ec4;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 30px;
+      color: #ff69b4;
+      animation: floatUp 2s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-300px) scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+  <div class="title">СОНЕЧКА!!!!!!</div>
+
+  <div class="card">
+    <h1>Добро пожаловать!</h1>
+    <p>Ты на локальном сервере Termux с красивым интерфейсом.</p>
+    <img src="IMG_20250429_120050_020.jpg" alt="Фото из Telegram">
+    <div class="caption">Твоя фотография из галереи</div>
+    <button class="btn" onclick="triggerEffects()">Нажми на меня</button>
+  </div>
+
+  <script>
+    function triggerEffects() {
+      // Тряска страницы
+      document.body.classList.add('shake');
+      setTimeout(() => document.body.classList.remove('shake'), 500);
+
+      // Появление сердец
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerText = '❤';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 50 + 50 + 'vh';
+        heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000);
+      }
+    }
+  </script>
+</body>
+</html>
